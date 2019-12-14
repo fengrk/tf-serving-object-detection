@@ -1,0 +1,21 @@
+version: '3.7'
+
+networks:
+    network-tf:
+        driver: bridge
+
+services:
+    tf-serving-object:
+        image: tensorflow/serving
+        container_name: tf-serving-object
+        hostname: tf-serving-object
+        restart: always
+        environment:
+            - MODEL_NAME=object
+        ports:
+            - 127.0.0.1:8501:8501
+            - 127.0.0.1:8500:8500
+        volumes:
+            - ./object_model:/models/object
+        networks:
+            - network-tf
