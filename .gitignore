@@ -8,3 +8,7 @@
 *.jpg
 *.png
 *.json
+
+model.tar.gz
+pretrained/
+server/object_model/
